@@ -2,7 +2,6 @@ import { Canvas } from '@react-three/fiber'
 import { Environment, Center } from '@react-three/drei'
 
 import Car from './Car'
-//import Backdrop from './Backdrop'
 import CameraRig from './CameraRig'
 
 const CanvasModel = () => {
