@@ -1,10 +1,10 @@
-# ShirtToneAI
+# CarToneAI
 
 ![Cover](/public/cover.png)
 
 ## AI-Powered 3D Interaction Using React and Three.js
 
-React project for interacting with a 3D shirt, allowing users to change colors, patterns and upload logos. Includes an AI prompt for pattern suggestions.
+React project for interacting with a 3D car, allowing users to change colors, patterns and upload logos. Includes an AI prompt for pattern suggestions.
 
 ## Technologies
 

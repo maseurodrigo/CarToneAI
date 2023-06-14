@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useSnapshot } from 'valtio'
 
@@ -37,7 +37,7 @@ const Customizer = () => {
     }
   }
 
-  // Updating shirt based on type (logo or full texture)
+  // Updating car based on type (logo or full texture)
   const handleDecals = (type, result) => {
     const decalType = DecalTypes[type];
     state[decalType.stateProperty] = result;

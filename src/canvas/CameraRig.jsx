@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { easing } from 'maath'
 import { useSnapshot } from 'valtio'
+import { motion } from 'framer-motion'
 
 import state from '../store'
 
@@ -31,6 +32,10 @@ const CameraRig = ({ children }) => {
         // Add rotation to group when snap.intro is true (main page)
         const { current: groupRef } = group;
         if (snap.intro && delta) {
+
+            // Adapting scale to the node size (home page)
+            group.current.scale.set((snap.relBase / snap.scale), (snap.relBase / snap.scale), (snap.relBase / snap.scale));
+
             // Static model rotation
             setMoveY(0);
             setMoveX(0);
@@ -40,6 +45,10 @@ const CameraRig = ({ children }) => {
             setRotation(groupRef.rotation.y);
             setSmooth(50);
         } else {
+
+            // Adapting scale to the node size (customize page)
+            group.current.scale.set((snap.relCustom / snap.scale), (snap.relCustom / snap.scale), (snap.relCustom / snap.scale));
+
             // Dynamic model rotation
             setMoveY(state.pointer.y / 8);
             setMoveX(-state.pointer.x / 4);
@@ -47,7 +56,7 @@ const CameraRig = ({ children }) => {
             setRotation(0);
             setSmooth(0.25);
         }
-
+        
         // Setting model camera position
         easing.damp3(state.camera.position, targetPosition, 0.25, delta)
 
@@ -55,7 +64,7 @@ const CameraRig = ({ children }) => {
         easing.dampE(group.current.rotation, [dampEMoveY, dampEMoveX, dampERotation], dampESmooth, delta)
     })
 
-    return <group ref={group}>{ children }</group>
+    return <motion.group ref={group}>{ children }</motion.group>
 }
 
 export default CameraRig
