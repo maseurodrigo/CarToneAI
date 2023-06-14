@@ -1,6 +1,6 @@
 # CarToneAI
 
-![Cover](/public/cover.png)
+![Cover](/public/cover.gif)
 
 ## AI-Powered 3D Interaction Using React and Three.js
 
