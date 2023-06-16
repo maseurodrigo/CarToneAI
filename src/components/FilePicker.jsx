@@ -1,10 +1,12 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
+import { fadeAnimation } from '../config/motion'
 import CustomButton from './CustomButton'
 
 const FilePicker = ({ file, setFile, readFile }) => {
   return (
-    <div className='filepicker-container'>
+    <motion.div className='filepicker-container' {...fadeAnimation}>
       <div className='flex-1 flex flex-col'>
         <input id='file-upload' type='file' accept='image/*' onChange={(e) => setFile(e.target.files[0])} />
         <label htmlFor='file-upload' className='filepicker-label'>Upload Pattern</label>
@@ -13,10 +15,9 @@ const FilePicker = ({ file, setFile, readFile }) => {
         </p>
       </div>
       <div className='mt-4 flex flex-wrap gap-3'>
-        <CustomButton title='Logo' handleClick={() => readFile('logo')} customStyles='text-xs'/>
         <CustomButton title='Full' handleClick={() => readFile('full')} customStyles='text-xs'/>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

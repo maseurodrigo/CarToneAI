@@ -17,23 +17,25 @@ const Customizer = () => {
   const [generatingImg, setGeneratingImg] = useState(false);
 
   const [activeEditorTab, setActiveEditorTab] = useState('');
-  const [activeFilterTab, setActiveFilterTab] = useState({
-    logoShirt: true,
-    stylishShirt: false
-  });
+  const [activeFilterTab, setActiveFilterTab] = useState({ paintPalette: false });
 
   // Show tab content depending on the activeTab
   const generateTabContent = () => {
     switch(activeEditorTab) {
       case 'colorpicker':
-        return <ColorPicker/>
+        return <ColorPicker colorChange={colorChange}/>
       case 'filepicker':
         return <FilePicker file={file} setFile={setFile} readFile={readFile} />
       case 'aipicker':
         return <AIPicker prompt={prompt} setPrompt={setPrompt} generatingImg={generatingImg} handleSubmit={handleSubmit} />
         default:
           return null;
-    }
+    }  
+  }
+
+  // Hiding SketchPicker after new color pick
+  const colorChange = () => { 
+    setTimeout(function() { setActiveEditorTab(''); }, 500); 
   }
 
   // Updating car based on type (logo or full texture)
@@ -46,17 +48,13 @@ const Customizer = () => {
     }
   }
 
-  // Updating current tab usage, logo or full texture or both
+  // Updating current tab usage
   const handleActiveFilterTab = (tabName) => {
     switch(tabName) {
-      case "logoShirt":
-        state.isLogoTexture = !activeFilterTab[tabName];
-        break;
-      case "stylishShirt":
+      case "paintPalette":
         state.isFullTexture = !activeFilterTab[tabName];
         break;
         default:
-          state.isLogoTexture = true;
           state.isFullTexture = false;
           break;
     }

@@ -2,7 +2,6 @@ import ai from "./ai.png";
 import fileIcon from "./file.png";
 import swatch from "./swatch.png";
 
-import logoShirt from "./logo-tshirt.png";
-import stylishShirt from "./stylish-tshirt.png";
+import paintPalette from "./paint-palette.png";
 
-export { ai, fileIcon, swatch, logoShirt, stylishShirt };
+export { ai, fileIcon, swatch, paintPalette };

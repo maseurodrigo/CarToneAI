@@ -35,7 +35,7 @@ const CameraRig = ({ children }) => {
 
             // Adapting scale to the node size (home page)
             group.current.scale.set((snap.relBase / snap.scale), (snap.relBase / snap.scale), (snap.relBase / snap.scale));
-
+            
             // Static model rotation
             setMoveY(0);
             setMoveX(0);
