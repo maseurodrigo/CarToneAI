@@ -13,6 +13,6 @@ React project for interacting with a 3D car, allowing users to change colors and
 - **TailwindCSS**: Utility-first CSS framework for efficient styling.
 - **Framer Motion**: Most popular library for adding animations to React websites.
 
-## Technologies
+## Credits
 
 This project was initially developed based on the [Original Repository](https://github.com/adrianhajdin/project_threejs_ai). Special thanks to their outstanding work, which laid a solid foundation for this project.
